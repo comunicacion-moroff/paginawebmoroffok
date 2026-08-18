@@ -1,0 +1,53 @@
+# ─── Versiones shareable (grandes, con imágenes base64) ─────────────
+# Se regeneran con `python embed.py`. NUNCA a git.
+shareable/
+
+# ─── Duplicados / archivos con espacios en el nombre ────────────────
+# Los "-principal.png" son los que usa el HTML. Los "foto principal" son fuente.
+havanna foto principal.png
+islas del canal foto principal.png
+yoo 4 foto principal.png
+
+# ─── Assets no usados por la web ────────────────────────────────────
+Moroff. Logo v01 (1).pdf.png
+moroff_estudio_brochure.pdf
+
+# ─── Originales sin optimizar dentro de fotos proyectos/ ────────────
+# Solo los archivos _hero.jpg, _living.jpg, etc. (con "_" al inicio) se usan.
+# Los WhatsApp originales, PHOTO-xxx, FullSizeRender, etc. no.
+fotos proyectos/**/PHOTO-*.jpeg
+fotos proyectos/**/PHOTO-*.jpg
+fotos proyectos/**/WhatsApp*
+fotos proyectos/**/FullSizeRender*
+fotos proyectos/**/*.HEIC
+fotos proyectos/**/[0-9a-f][0-9a-f][0-9a-f][0-9a-f]*.jpg
+fotos proyectos/**/_contact*
+fotos proyectos/**/_sheet*
+
+# ─── Otros originales grandes ───────────────────────────────────────
+fotos casas de decoracion/FOTO 1 CASAS DE DECORACION.HEIC
+fotos arquitectos/FullSizeRender*.HEIC
+
+# ─── Basura / backups ───────────────────────────────────────────────
+index.backup.html
+Nueva carpeta/
+*.bak
+
+# ─── Config local de Claude Code ────────────────────────────────────
+.claude/
+
+# ─── Sistema / editor ───────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*.swo
+.vscode/
+.idea/
+
+# ─── Python ─────────────────────────────────────────────────────────
+__pycache__/
+*.pyc
+*.pyo
+venv/
+.env
