@@ -21,6 +21,8 @@ fotos proyectos/**/WhatsApp*
 fotos proyectos/**/FullSizeRender*
 fotos proyectos/**/*.HEIC
 fotos proyectos/**/[0-9a-f][0-9a-f][0-9a-f][0-9a-f]*.jpg
+fotos proyectos/**/[0-9a-f][0-9a-f][0-9a-f][0-9a-f]*.png
+fotos proyectos/**/ChatGPT*
 fotos proyectos/**/_contact*
 fotos proyectos/**/_sheet*
 
