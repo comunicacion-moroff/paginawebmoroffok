@@ -18,6 +18,9 @@ moroff_estudio_brochure.pdf
 fotos proyectos/**/PHOTO-*.jpeg
 fotos proyectos/**/PHOTO-*.jpg
 fotos proyectos/**/WhatsApp*
+fotos carruselp/WhatsApp*
+fotos carruselp/PORTADA*
+fotos carruselp/_contact*
 fotos proyectos/**/FullSizeRender*
 fotos proyectos/**/*.HEIC
 fotos proyectos/**/[0-9a-f][0-9a-f][0-9a-f][0-9a-f]*.jpg

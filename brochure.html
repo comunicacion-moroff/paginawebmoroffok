@@ -918,6 +918,76 @@ body.modal-open { overflow: hidden; }
   transition: transform 0.3s;
 }
 .logo-standalone a:hover img { transform: scale(1.06); }
+/* ─── CARRUSEL "algunos de nuestros trabajos" ─── */
+.works-strip {
+  background: var(--cream);
+  padding: clamp(60px, 8vw, 100px) 0 clamp(50px, 6vw, 80px);
+  overflow: hidden;
+}
+.works-strip-header {
+  text-align: center;
+  margin-bottom: 44px;
+  padding: 0 clamp(20px, 5vw, 48px);
+}
+.works-strip-header .section-label {
+  justify-content: center;
+  color: var(--warm-gray);
+}
+.works-strip-header .section-label::before,
+.works-strip-header .section-label::after {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: currentColor;
+}
+.works-strip-title {
+  font-family: var(--font-sans);
+  font-size: clamp(1.8rem, 3.5vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--black);
+  max-width: 24ch;
+  margin: 0 auto;
+  line-height: 1.05;
+}
+.works-strip-marquee {
+  position: relative;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, black 6%, black 94%, transparent);
+          mask-image: linear-gradient(90deg, transparent, black 6%, black 94%, transparent);
+}
+.works-strip-track {
+  display: flex;
+  gap: 18px;
+  width: max-content;
+  animation: works-scroll 140s linear infinite;
+}
+.works-strip-marquee:hover .works-strip-track {
+  animation-play-state: paused;
+}
+.works-strip-track img {
+  width: clamp(190px, 22vw, 270px);
+  height: clamp(190px, 22vw, 270px);
+  object-fit: cover;
+  display: block;
+  border-radius: 2px;
+  transition: transform 0.4s ease, filter 0.4s ease;
+  filter: saturate(0.95);
+}
+.works-strip-track img:hover {
+  transform: scale(1.03);
+  filter: saturate(1.05);
+}
+@keyframes works-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@media (max-width: 600px) {
+  .works-strip-track { gap: 12px; animation-duration: 90s; }
+  .works-strip-header { margin-bottom: 32px; }
+}
+
 </style>
 </head>
 <body>
@@ -928,6 +998,70 @@ body.modal-open { overflow: hidden; }
 
 
 <!-- ─── PROYECTOS ─── -->
+<!-- ─── CARRUSEL "algunos de nuestros trabajos" ─── -->
+<section class="works-strip">
+  <div class="works-strip-header">
+    <div class="section-label reveal">Portafolio en movimiento</div>
+    <h2 class="works-strip-title reveal">Algunos de nuestros trabajos.</h2>
+  </div>
+  <div class="works-strip-marquee">
+    <div class="works-strip-track">
+      <img src="fotos%20carruselp/c01.jpg" alt="" loading="lazy">
+      <img src="fotos%20carruselp/c02.jpg" alt="" loading="lazy">
+      <img src="fotos%20carruselp/c03.jpg" alt="" loading="lazy">
+      <img src="fotos%20carruselp/c04.jpg" alt="" loading="lazy">
+      <img src="fotos%20carruselp/c05.jpg" alt="" loading="lazy">
+      <img src="fotos%20carruselp/c06.jpg" alt="" loading="lazy">
+      <img src="fotos%20carruselp/c07.jpg" alt="" loading="lazy">
+      <img src="fotos%20carruselp/c08.jpg" alt="" loading="lazy">
+      <img src="fotos%20carruselp/c09.jpg" alt="" loading="lazy">
+      <img src="fotos%20carruselp/c10.jpg" alt="" loading="lazy">
+      <img src="fotos%20carruselp/c11.jpg" alt="" loading="lazy">
+      <img src="fotos%20carruselp/c12.jpg" alt="" loading="lazy">
+      <img src="fotos%20carruselp/c13.jpg" alt="" loading="lazy">
+      <img src="fotos%20carruselp/c14.jpg" alt="" loading="lazy">
+      <img src="fotos%20carruselp/c15.jpg" alt="" loading="lazy">
+      <img src="fotos%20carruselp/c16.jpg" alt="" loading="lazy">
+      <img src="fotos%20carruselp/c17.jpg" alt="" loading="lazy">
+      <img src="fotos%20carruselp/c18.jpg" alt="" loading="lazy">
+      <img src="fotos%20carruselp/c19.jpg" alt="" loading="lazy">
+      <img src="fotos%20carruselp/c20.jpg" alt="" loading="lazy">
+      <img src="fotos%20carruselp/c21.jpg" alt="" loading="lazy">
+      <img src="fotos%20carruselp/c22.jpg" alt="" loading="lazy">
+      <img src="fotos%20carruselp/c23.jpg" alt="" loading="lazy">
+      <img src="fotos%20carruselp/c24.jpg" alt="" loading="lazy">
+      <img src="fotos%20carruselp/c25.jpg" alt="" loading="lazy">
+      <img src="fotos%20carruselp/c26.jpg" alt="" loading="lazy">
+      <img src="fotos%20carruselp/c01.jpg" alt="" aria-hidden="true" loading="lazy">
+      <img src="fotos%20carruselp/c02.jpg" alt="" aria-hidden="true" loading="lazy">
+      <img src="fotos%20carruselp/c03.jpg" alt="" aria-hidden="true" loading="lazy">
+      <img src="fotos%20carruselp/c04.jpg" alt="" aria-hidden="true" loading="lazy">
+      <img src="fotos%20carruselp/c05.jpg" alt="" aria-hidden="true" loading="lazy">
+      <img src="fotos%20carruselp/c06.jpg" alt="" aria-hidden="true" loading="lazy">
+      <img src="fotos%20carruselp/c07.jpg" alt="" aria-hidden="true" loading="lazy">
+      <img src="fotos%20carruselp/c08.jpg" alt="" aria-hidden="true" loading="lazy">
+      <img src="fotos%20carruselp/c09.jpg" alt="" aria-hidden="true" loading="lazy">
+      <img src="fotos%20carruselp/c10.jpg" alt="" aria-hidden="true" loading="lazy">
+      <img src="fotos%20carruselp/c11.jpg" alt="" aria-hidden="true" loading="lazy">
+      <img src="fotos%20carruselp/c12.jpg" alt="" aria-hidden="true" loading="lazy">
+      <img src="fotos%20carruselp/c13.jpg" alt="" aria-hidden="true" loading="lazy">
+      <img src="fotos%20carruselp/c14.jpg" alt="" aria-hidden="true" loading="lazy">
+      <img src="fotos%20carruselp/c15.jpg" alt="" aria-hidden="true" loading="lazy">
+      <img src="fotos%20carruselp/c16.jpg" alt="" aria-hidden="true" loading="lazy">
+      <img src="fotos%20carruselp/c17.jpg" alt="" aria-hidden="true" loading="lazy">
+      <img src="fotos%20carruselp/c18.jpg" alt="" aria-hidden="true" loading="lazy">
+      <img src="fotos%20carruselp/c19.jpg" alt="" aria-hidden="true" loading="lazy">
+      <img src="fotos%20carruselp/c20.jpg" alt="" aria-hidden="true" loading="lazy">
+      <img src="fotos%20carruselp/c21.jpg" alt="" aria-hidden="true" loading="lazy">
+      <img src="fotos%20carruselp/c22.jpg" alt="" aria-hidden="true" loading="lazy">
+      <img src="fotos%20carruselp/c23.jpg" alt="" aria-hidden="true" loading="lazy">
+      <img src="fotos%20carruselp/c24.jpg" alt="" aria-hidden="true" loading="lazy">
+      <img src="fotos%20carruselp/c25.jpg" alt="" aria-hidden="true" loading="lazy">
+      <img src="fotos%20carruselp/c26.jpg" alt="" aria-hidden="true" loading="lazy">
+    </div>
+  </div>
+</section>
+
 <section id="proyectos">
   <div class="proyectos-header">
     <div>
