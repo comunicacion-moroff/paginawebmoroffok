@@ -20,7 +20,12 @@ fotos proyectos/**/PHOTO-*.jpg
 fotos proyectos/**/WhatsApp*
 fotos carruselp/WhatsApp*
 fotos carruselp/PORTADA*
+fotos carruselp/ChatGPT*
+fotos carruselp/*.png
+fotos carruselp/*.PNG
+fotos carruselp/[0-9a-f][0-9a-f][0-9a-f]*.jpg
 fotos carruselp/_contact*
+fotos carruselp/_check*
 fotos proyectos/**/FullSizeRender*
 fotos proyectos/**/*.HEIC
 fotos proyectos/**/[0-9a-f][0-9a-f][0-9a-f][0-9a-f]*.jpg
