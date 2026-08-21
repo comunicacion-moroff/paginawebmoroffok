@@ -960,10 +960,7 @@ body.modal-open { overflow: hidden; }
 .works-strip-track {
   display: flex;
   width: max-content;
-  animation: works-scroll 140s linear infinite;
-}
-.works-strip-marquee:hover .works-strip-track {
-  animation-play-state: paused;
+  will-change: transform;
 }
 .works-strip-track img {
   width: clamp(190px, 22vw, 270px);
@@ -979,13 +976,47 @@ body.modal-open { overflow: hidden; }
   transform: scale(1.03);
   filter: saturate(1.05);
 }
-@keyframes works-scroll {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
+.works-strip-controls {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 32px;
+  padding: 0 clamp(20px, 5vw, 48px);
+}
+.works-arrow {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid rgba(0,0,0,0.18);
+  background: transparent;
+  color: var(--black);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+  padding: 0;
+}
+.works-arrow:hover {
+  background: var(--black);
+  border-color: var(--black);
+  color: var(--white);
+}
+.works-arrow:active { transform: scale(0.94); }
+.works-arrow svg {
+  width: 14px;
+  height: 14px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 @media (max-width: 600px) {
-  .works-strip-track { animation-duration: 90s; } .works-strip-track img { margin-right: 12px; }
+  .works-strip-track img { margin-right: 12px; }
   .works-strip-header { margin-bottom: 32px; }
+  .works-strip-controls { margin-top: 24px; gap: 12px; }
+  .works-arrow { width: 38px; height: 38px; }
 }
 
 </style>
@@ -1769,6 +1800,49 @@ window.addEventListener('hashchange', () => {
   });
 
   if (location.hash.replace('#', '') === 'brochure-content') openBrochure(false);
+})();
+
+// ─── Works strip carousel ───
+(function initWorksStrip(){
+  const marquee = document.querySelector('.works-strip-marquee');
+  const track   = marquee && marquee.querySelector('.works-strip-track');
+  if (!track) return;
+
+  let offset = 0;
+  let paused = false;
+  const SPEED = 55;              // px/s (más rápido que antes)
+  const ARROW_STEP = 320;        // px que salta cada flecha
+  let last = performance.now();
+  let setW = 0;
+
+  function recalc(){ setW = track.scrollWidth / 2; }
+  window.addEventListener('resize', recalc);
+  window.addEventListener('load', recalc);
+  recalc();
+
+  function loop(now){
+    const dt = (now - last) / 1000;
+    last = now;
+    if (!paused && setW > 0) offset += SPEED * dt;
+    if (setW > 0) {
+      if (offset >= setW) offset -= setW;
+      if (offset < 0) offset += setW;
+    }
+    track.style.transform = `translateX(-${offset}px)`;
+    requestAnimationFrame(loop);
+  }
+  requestAnimationFrame(loop);
+
+  marquee.addEventListener('mouseenter', () => paused = true);
+  marquee.addEventListener('mouseleave', () => paused = false);
+
+  document.querySelectorAll('.works-arrow').forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (setW <= 0) recalc();
+      const delta = btn.dataset.dir === 'next' ? ARROW_STEP : -ARROW_STEP;
+      offset += delta;
+    });
+  });
 })();
 </script>
 </body>
