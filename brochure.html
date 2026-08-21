@@ -976,48 +976,9 @@ body.modal-open { overflow: hidden; }
   transform: scale(1.03);
   filter: saturate(1.05);
 }
-.works-strip-controls {
-  display: flex;
-  justify-content: center;
-  gap: 16px;
-  margin-top: 32px;
-  padding: 0 clamp(20px, 5vw, 48px);
-}
-.works-arrow {
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  border: 1px solid rgba(0,0,0,0.18);
-  background: transparent;
-  color: var(--black);
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
-  padding: 0;
-}
-.works-arrow:hover {
-  background: var(--black);
-  border-color: var(--black);
-  color: var(--white);
-}
-.works-arrow:active { transform: scale(0.94); }
-.works-arrow svg {
-  width: 14px;
-  height: 14px;
-  stroke: currentColor;
-  fill: none;
-  stroke-width: 1.6;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
 @media (max-width: 600px) {
   .works-strip-track img { margin-right: 12px; }
-  .works-strip-header { margin-bottom: 32px; }
-  .works-strip-controls { margin-top: 24px; gap: 12px; }
-  .works-arrow { width: 38px; height: 38px; }
-}
+  .works-strip-header { margin-bottom: 32px; } }
 
 .works-strip-marquee--bottom { margin-top: 18px; }
 
@@ -1118,9 +1079,6 @@ body.lightbox-open { overflow: hidden; }
       <img src="fotos%20carruselp/c13.jpg" alt="" loading="lazy" data-idx="13">
       <img src="fotos%20carruselp/c14.jpg" alt="" loading="lazy" data-idx="14">
       <img src="fotos%20carruselp/c15.jpg" alt="" loading="lazy" data-idx="15">
-      <img src="fotos%20carruselp/c16.jpg" alt="" loading="lazy" data-idx="16">
-      <img src="fotos%20carruselp/c17.jpg" alt="" loading="lazy" data-idx="17">
-      <img src="fotos%20carruselp/c18.jpg" alt="" loading="lazy" data-idx="18">
       <img src="fotos%20carruselp/c01.jpg" alt="" aria-hidden="true" loading="lazy" data-idx="1">
       <img src="fotos%20carruselp/c02.jpg" alt="" aria-hidden="true" loading="lazy" data-idx="2">
       <img src="fotos%20carruselp/c03.jpg" alt="" aria-hidden="true" loading="lazy" data-idx="3">
@@ -1136,13 +1094,13 @@ body.lightbox-open { overflow: hidden; }
       <img src="fotos%20carruselp/c13.jpg" alt="" aria-hidden="true" loading="lazy" data-idx="13">
       <img src="fotos%20carruselp/c14.jpg" alt="" aria-hidden="true" loading="lazy" data-idx="14">
       <img src="fotos%20carruselp/c15.jpg" alt="" aria-hidden="true" loading="lazy" data-idx="15">
-      <img src="fotos%20carruselp/c16.jpg" alt="" aria-hidden="true" loading="lazy" data-idx="16">
-      <img src="fotos%20carruselp/c17.jpg" alt="" aria-hidden="true" loading="lazy" data-idx="17">
-      <img src="fotos%20carruselp/c18.jpg" alt="" aria-hidden="true" loading="lazy" data-idx="18">
     </div>
   </div>
   <div class="works-strip-marquee works-strip-marquee--bottom" data-dir="right">
     <div class="works-strip-track">
+      <img src="fotos%20carruselp/c16.jpg" alt="" loading="lazy" data-idx="16">
+      <img src="fotos%20carruselp/c17.jpg" alt="" loading="lazy" data-idx="17">
+      <img src="fotos%20carruselp/c18.jpg" alt="" loading="lazy" data-idx="18">
       <img src="fotos%20carruselp/c19.jpg" alt="" loading="lazy" data-idx="19">
       <img src="fotos%20carruselp/c20.jpg" alt="" loading="lazy" data-idx="20">
       <img src="fotos%20carruselp/c21.jpg" alt="" loading="lazy" data-idx="21">
@@ -1155,12 +1113,9 @@ body.lightbox-open { overflow: hidden; }
       <img src="fotos%20carruselp/c28.jpg" alt="" loading="lazy" data-idx="28">
       <img src="fotos%20carruselp/c29.jpg" alt="" loading="lazy" data-idx="29">
       <img src="fotos%20carruselp/c30.jpg" alt="" loading="lazy" data-idx="30">
-      <img src="fotos%20carruselp/c31.jpg" alt="" loading="lazy" data-idx="31">
-      <img src="fotos%20carruselp/c32.jpg" alt="" loading="lazy" data-idx="32">
-      <img src="fotos%20carruselp/c33.jpg" alt="" loading="lazy" data-idx="33">
-      <img src="fotos%20carruselp/c34.jpg" alt="" loading="lazy" data-idx="34">
-      <img src="fotos%20carruselp/c35.jpg" alt="" loading="lazy" data-idx="35">
-      <img src="fotos%20carruselp/c36.jpg" alt="" loading="lazy" data-idx="36">
+      <img src="fotos%20carruselp/c16.jpg" alt="" aria-hidden="true" loading="lazy" data-idx="16">
+      <img src="fotos%20carruselp/c17.jpg" alt="" aria-hidden="true" loading="lazy" data-idx="17">
+      <img src="fotos%20carruselp/c18.jpg" alt="" aria-hidden="true" loading="lazy" data-idx="18">
       <img src="fotos%20carruselp/c19.jpg" alt="" aria-hidden="true" loading="lazy" data-idx="19">
       <img src="fotos%20carruselp/c20.jpg" alt="" aria-hidden="true" loading="lazy" data-idx="20">
       <img src="fotos%20carruselp/c21.jpg" alt="" aria-hidden="true" loading="lazy" data-idx="21">
@@ -1173,21 +1128,7 @@ body.lightbox-open { overflow: hidden; }
       <img src="fotos%20carruselp/c28.jpg" alt="" aria-hidden="true" loading="lazy" data-idx="28">
       <img src="fotos%20carruselp/c29.jpg" alt="" aria-hidden="true" loading="lazy" data-idx="29">
       <img src="fotos%20carruselp/c30.jpg" alt="" aria-hidden="true" loading="lazy" data-idx="30">
-      <img src="fotos%20carruselp/c31.jpg" alt="" aria-hidden="true" loading="lazy" data-idx="31">
-      <img src="fotos%20carruselp/c32.jpg" alt="" aria-hidden="true" loading="lazy" data-idx="32">
-      <img src="fotos%20carruselp/c33.jpg" alt="" aria-hidden="true" loading="lazy" data-idx="33">
-      <img src="fotos%20carruselp/c34.jpg" alt="" aria-hidden="true" loading="lazy" data-idx="34">
-      <img src="fotos%20carruselp/c35.jpg" alt="" aria-hidden="true" loading="lazy" data-idx="35">
-      <img src="fotos%20carruselp/c36.jpg" alt="" aria-hidden="true" loading="lazy" data-idx="36">
     </div>
-  </div>
-  <div class="works-strip-controls">
-    <button type="button" class="works-arrow" data-dir="prev" aria-label="Anterior">
-      <svg viewBox="0 0 14 14"><polyline points="9 2 3 7 9 12"/></svg>
-    </button>
-    <button type="button" class="works-arrow" data-dir="next" aria-label="Siguiente">
-      <svg viewBox="0 0 14 14"><polyline points="5 2 11 7 5 12"/></svg>
-    </button>
   </div>
 </section>
 
@@ -1937,12 +1878,6 @@ window.addEventListener('hashchange', () => {
     requestAnimationFrame(loop);
   }
   requestAnimationFrame(loop);
-
-  document.querySelectorAll('.works-arrow').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const delta = btn.dataset.dir === 'next' ? ARROW_STEP : -ARROW_STEP;
-      states.forEach(s => { s.offset += delta * s.dir; });
-    });
   });
 
   // Lightbox
@@ -1953,7 +1888,7 @@ window.addEventListener('hashchange', () => {
   const lbPrev   = document.getElementById('lightboxPrev');
   const lbNext   = document.getElementById('lightboxNext');
   const lbCount  = document.getElementById('lightboxCount');
-  const TOTAL = 36;
+  const TOTAL = 30;
   let currentIdx = 1;
 
   function urlFor(i){ return 'fotos%20carruselp/c' + String(i).padStart(2,'0') + '.jpg'; }
