@@ -1019,6 +1019,72 @@ body.modal-open { overflow: hidden; }
   .works-arrow { width: 38px; height: 38px; }
 }
 
+.works-strip-marquee--bottom { margin-top: 18px; }
+
+/* ─── LIGHTBOX ─── */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(10,10,10,0.94);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 4vh 4vw;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.lightbox.open { display: flex; opacity: 1; }
+body.lightbox-open { overflow: hidden; }
+.lightbox-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  user-select: none;
+  -webkit-user-drag: none;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+.lightbox-btn {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.25);
+  background: rgba(0,0,0,0.4);
+  color: var(--white);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  padding: 0;
+  -webkit-backdrop-filter: blur(6px);
+          backdrop-filter: blur(6px);
+}
+.lightbox-btn:hover { background: rgba(0,0,0,0.7); border-color: rgba(255,255,255,0.6); }
+.lightbox-btn:active { transform: scale(0.94); }
+.lightbox-btn svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.lightbox-prev { left: clamp(12px, 3vw, 32px); top: 50%; transform: translateY(-50%); }
+.lightbox-next { right: clamp(12px, 3vw, 32px); top: 50%; transform: translateY(-50%); }
+.lightbox-prev:active { transform: translateY(-50%) scale(0.94); }
+.lightbox-next:active { transform: translateY(-50%) scale(0.94); }
+.lightbox-close { top: clamp(12px, 3vw, 24px); right: clamp(12px, 3vw, 24px); }
+.lightbox-count {
+  position: absolute;
+  bottom: clamp(12px, 3vw, 24px);
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  color: rgba(255,255,255,0.55);
+}
+.works-strip-track img { cursor: zoom-in; }
+@media (max-width: 600px) {
+  .lightbox-btn { width: 40px; height: 40px; }
+  .works-strip-marquee--bottom { margin-top: 12px; }
+}
+
 </style>
 </head>
 <body>
@@ -1035,61 +1101,93 @@ body.modal-open { overflow: hidden; }
     <div class="section-label reveal">Portafolio</div>
     <h2 class="works-strip-title reveal">Algunos de nuestros trabajos.</h2>
   </div>
-  <div class="works-strip-marquee">
+  <div class="works-strip-marquee" data-dir="left">
     <div class="works-strip-track">
-      <img src="fotos%20carruselp/c01.jpg" alt="" loading="lazy">
-      <img src="fotos%20carruselp/c02.jpg" alt="" loading="lazy">
-      <img src="fotos%20carruselp/c03.jpg" alt="" loading="lazy">
-      <img src="fotos%20carruselp/c04.jpg" alt="" loading="lazy">
-      <img src="fotos%20carruselp/c05.jpg" alt="" loading="lazy">
-      <img src="fotos%20carruselp/c06.jpg" alt="" loading="lazy">
-      <img src="fotos%20carruselp/c07.jpg" alt="" loading="lazy">
-      <img src="fotos%20carruselp/c08.jpg" alt="" loading="lazy">
-      <img src="fotos%20carruselp/c09.jpg" alt="" loading="lazy">
-      <img src="fotos%20carruselp/c10.jpg" alt="" loading="lazy">
-      <img src="fotos%20carruselp/c11.jpg" alt="" loading="lazy">
-      <img src="fotos%20carruselp/c12.jpg" alt="" loading="lazy">
-      <img src="fotos%20carruselp/c13.jpg" alt="" loading="lazy">
-      <img src="fotos%20carruselp/c14.jpg" alt="" loading="lazy">
-      <img src="fotos%20carruselp/c15.jpg" alt="" loading="lazy">
-      <img src="fotos%20carruselp/c16.jpg" alt="" loading="lazy">
-      <img src="fotos%20carruselp/c17.jpg" alt="" loading="lazy">
-      <img src="fotos%20carruselp/c18.jpg" alt="" loading="lazy">
-      <img src="fotos%20carruselp/c19.jpg" alt="" loading="lazy">
-      <img src="fotos%20carruselp/c20.jpg" alt="" loading="lazy">
-      <img src="fotos%20carruselp/c21.jpg" alt="" loading="lazy">
-      <img src="fotos%20carruselp/c22.jpg" alt="" loading="lazy">
-      <img src="fotos%20carruselp/c23.jpg" alt="" loading="lazy">
-      <img src="fotos%20carruselp/c24.jpg" alt="" loading="lazy">
-      <img src="fotos%20carruselp/c25.jpg" alt="" loading="lazy">
-      <img src="fotos%20carruselp/c26.jpg" alt="" loading="lazy">
-      <img src="fotos%20carruselp/c01.jpg" alt="" aria-hidden="true" loading="lazy">
-      <img src="fotos%20carruselp/c02.jpg" alt="" aria-hidden="true" loading="lazy">
-      <img src="fotos%20carruselp/c03.jpg" alt="" aria-hidden="true" loading="lazy">
-      <img src="fotos%20carruselp/c04.jpg" alt="" aria-hidden="true" loading="lazy">
-      <img src="fotos%20carruselp/c05.jpg" alt="" aria-hidden="true" loading="lazy">
-      <img src="fotos%20carruselp/c06.jpg" alt="" aria-hidden="true" loading="lazy">
-      <img src="fotos%20carruselp/c07.jpg" alt="" aria-hidden="true" loading="lazy">
-      <img src="fotos%20carruselp/c08.jpg" alt="" aria-hidden="true" loading="lazy">
-      <img src="fotos%20carruselp/c09.jpg" alt="" aria-hidden="true" loading="lazy">
-      <img src="fotos%20carruselp/c10.jpg" alt="" aria-hidden="true" loading="lazy">
-      <img src="fotos%20carruselp/c11.jpg" alt="" aria-hidden="true" loading="lazy">
-      <img src="fotos%20carruselp/c12.jpg" alt="" aria-hidden="true" loading="lazy">
-      <img src="fotos%20carruselp/c13.jpg" alt="" aria-hidden="true" loading="lazy">
-      <img src="fotos%20carruselp/c14.jpg" alt="" aria-hidden="true" loading="lazy">
-      <img src="fotos%20carruselp/c15.jpg" alt="" aria-hidden="true" loading="lazy">
-      <img src="fotos%20carruselp/c16.jpg" alt="" aria-hidden="true" loading="lazy">
-      <img src="fotos%20carruselp/c17.jpg" alt="" aria-hidden="true" loading="lazy">
-      <img src="fotos%20carruselp/c18.jpg" alt="" aria-hidden="true" loading="lazy">
-      <img src="fotos%20carruselp/c19.jpg" alt="" aria-hidden="true" loading="lazy">
-      <img src="fotos%20carruselp/c20.jpg" alt="" aria-hidden="true" loading="lazy">
-      <img src="fotos%20carruselp/c21.jpg" alt="" aria-hidden="true" loading="lazy">
-      <img src="fotos%20carruselp/c22.jpg" alt="" aria-hidden="true" loading="lazy">
-      <img src="fotos%20carruselp/c23.jpg" alt="" aria-hidden="true" loading="lazy">
-      <img src="fotos%20carruselp/c24.jpg" alt="" aria-hidden="true" loading="lazy">
-      <img src="fotos%20carruselp/c25.jpg" alt="" aria-hidden="true" loading="lazy">
-      <img src="fotos%20carruselp/c26.jpg" alt="" aria-hidden="true" loading="lazy">
+      <img src="fotos%20carruselp/c01.jpg" alt="" loading="lazy" data-idx="1">
+      <img src="fotos%20carruselp/c02.jpg" alt="" loading="lazy" data-idx="2">
+      <img src="fotos%20carruselp/c03.jpg" alt="" loading="lazy" data-idx="3">
+      <img src="fotos%20carruselp/c04.jpg" alt="" loading="lazy" data-idx="4">
+      <img src="fotos%20carruselp/c05.jpg" alt="" loading="lazy" data-idx="5">
+      <img src="fotos%20carruselp/c06.jpg" alt="" loading="lazy" data-idx="6">
+      <img src="fotos%20carruselp/c07.jpg" alt="" loading="lazy" data-idx="7">
+      <img src="fotos%20carruselp/c08.jpg" alt="" loading="lazy" data-idx="8">
+      <img src="fotos%20carruselp/c09.jpg" alt="" loading="lazy" data-idx="9">
+      <img src="fotos%20carruselp/c10.jpg" alt="" loading="lazy" data-idx="10">
+      <img src="fotos%20carruselp/c11.jpg" alt="" loading="lazy" data-idx="11">
+      <img src="fotos%20carruselp/c12.jpg" alt="" loading="lazy" data-idx="12">
+      <img src="fotos%20carruselp/c13.jpg" alt="" loading="lazy" data-idx="13">
+      <img src="fotos%20carruselp/c14.jpg" alt="" loading="lazy" data-idx="14">
+      <img src="fotos%20carruselp/c15.jpg" alt="" loading="lazy" data-idx="15">
+      <img src="fotos%20carruselp/c16.jpg" alt="" loading="lazy" data-idx="16">
+      <img src="fotos%20carruselp/c17.jpg" alt="" loading="lazy" data-idx="17">
+      <img src="fotos%20carruselp/c18.jpg" alt="" loading="lazy" data-idx="18">
+      <img src="fotos%20carruselp/c01.jpg" alt="" aria-hidden="true" loading="lazy" data-idx="1">
+      <img src="fotos%20carruselp/c02.jpg" alt="" aria-hidden="true" loading="lazy" data-idx="2">
+      <img src="fotos%20carruselp/c03.jpg" alt="" aria-hidden="true" loading="lazy" data-idx="3">
+      <img src="fotos%20carruselp/c04.jpg" alt="" aria-hidden="true" loading="lazy" data-idx="4">
+      <img src="fotos%20carruselp/c05.jpg" alt="" aria-hidden="true" loading="lazy" data-idx="5">
+      <img src="fotos%20carruselp/c06.jpg" alt="" aria-hidden="true" loading="lazy" data-idx="6">
+      <img src="fotos%20carruselp/c07.jpg" alt="" aria-hidden="true" loading="lazy" data-idx="7">
+      <img src="fotos%20carruselp/c08.jpg" alt="" aria-hidden="true" loading="lazy" data-idx="8">
+      <img src="fotos%20carruselp/c09.jpg" alt="" aria-hidden="true" loading="lazy" data-idx="9">
+      <img src="fotos%20carruselp/c10.jpg" alt="" aria-hidden="true" loading="lazy" data-idx="10">
+      <img src="fotos%20carruselp/c11.jpg" alt="" aria-hidden="true" loading="lazy" data-idx="11">
+      <img src="fotos%20carruselp/c12.jpg" alt="" aria-hidden="true" loading="lazy" data-idx="12">
+      <img src="fotos%20carruselp/c13.jpg" alt="" aria-hidden="true" loading="lazy" data-idx="13">
+      <img src="fotos%20carruselp/c14.jpg" alt="" aria-hidden="true" loading="lazy" data-idx="14">
+      <img src="fotos%20carruselp/c15.jpg" alt="" aria-hidden="true" loading="lazy" data-idx="15">
+      <img src="fotos%20carruselp/c16.jpg" alt="" aria-hidden="true" loading="lazy" data-idx="16">
+      <img src="fotos%20carruselp/c17.jpg" alt="" aria-hidden="true" loading="lazy" data-idx="17">
+      <img src="fotos%20carruselp/c18.jpg" alt="" aria-hidden="true" loading="lazy" data-idx="18">
     </div>
+  </div>
+  <div class="works-strip-marquee works-strip-marquee--bottom" data-dir="right">
+    <div class="works-strip-track">
+      <img src="fotos%20carruselp/c19.jpg" alt="" loading="lazy" data-idx="19">
+      <img src="fotos%20carruselp/c20.jpg" alt="" loading="lazy" data-idx="20">
+      <img src="fotos%20carruselp/c21.jpg" alt="" loading="lazy" data-idx="21">
+      <img src="fotos%20carruselp/c22.jpg" alt="" loading="lazy" data-idx="22">
+      <img src="fotos%20carruselp/c23.jpg" alt="" loading="lazy" data-idx="23">
+      <img src="fotos%20carruselp/c24.jpg" alt="" loading="lazy" data-idx="24">
+      <img src="fotos%20carruselp/c25.jpg" alt="" loading="lazy" data-idx="25">
+      <img src="fotos%20carruselp/c26.jpg" alt="" loading="lazy" data-idx="26">
+      <img src="fotos%20carruselp/c27.jpg" alt="" loading="lazy" data-idx="27">
+      <img src="fotos%20carruselp/c28.jpg" alt="" loading="lazy" data-idx="28">
+      <img src="fotos%20carruselp/c29.jpg" alt="" loading="lazy" data-idx="29">
+      <img src="fotos%20carruselp/c30.jpg" alt="" loading="lazy" data-idx="30">
+      <img src="fotos%20carruselp/c31.jpg" alt="" loading="lazy" data-idx="31">
+      <img src="fotos%20carruselp/c32.jpg" alt="" loading="lazy" data-idx="32">
+      <img src="fotos%20carruselp/c33.jpg" alt="" loading="lazy" data-idx="33">
+      <img src="fotos%20carruselp/c34.jpg" alt="" loading="lazy" data-idx="34">
+      <img src="fotos%20carruselp/c35.jpg" alt="" loading="lazy" data-idx="35">
+      <img src="fotos%20carruselp/c36.jpg" alt="" loading="lazy" data-idx="36">
+      <img src="fotos%20carruselp/c19.jpg" alt="" aria-hidden="true" loading="lazy" data-idx="19">
+      <img src="fotos%20carruselp/c20.jpg" alt="" aria-hidden="true" loading="lazy" data-idx="20">
+      <img src="fotos%20carruselp/c21.jpg" alt="" aria-hidden="true" loading="lazy" data-idx="21">
+      <img src="fotos%20carruselp/c22.jpg" alt="" aria-hidden="true" loading="lazy" data-idx="22">
+      <img src="fotos%20carruselp/c23.jpg" alt="" aria-hidden="true" loading="lazy" data-idx="23">
+      <img src="fotos%20carruselp/c24.jpg" alt="" aria-hidden="true" loading="lazy" data-idx="24">
+      <img src="fotos%20carruselp/c25.jpg" alt="" aria-hidden="true" loading="lazy" data-idx="25">
+      <img src="fotos%20carruselp/c26.jpg" alt="" aria-hidden="true" loading="lazy" data-idx="26">
+      <img src="fotos%20carruselp/c27.jpg" alt="" aria-hidden="true" loading="lazy" data-idx="27">
+      <img src="fotos%20carruselp/c28.jpg" alt="" aria-hidden="true" loading="lazy" data-idx="28">
+      <img src="fotos%20carruselp/c29.jpg" alt="" aria-hidden="true" loading="lazy" data-idx="29">
+      <img src="fotos%20carruselp/c30.jpg" alt="" aria-hidden="true" loading="lazy" data-idx="30">
+      <img src="fotos%20carruselp/c31.jpg" alt="" aria-hidden="true" loading="lazy" data-idx="31">
+      <img src="fotos%20carruselp/c32.jpg" alt="" aria-hidden="true" loading="lazy" data-idx="32">
+      <img src="fotos%20carruselp/c33.jpg" alt="" aria-hidden="true" loading="lazy" data-idx="33">
+      <img src="fotos%20carruselp/c34.jpg" alt="" aria-hidden="true" loading="lazy" data-idx="34">
+      <img src="fotos%20carruselp/c35.jpg" alt="" aria-hidden="true" loading="lazy" data-idx="35">
+      <img src="fotos%20carruselp/c36.jpg" alt="" aria-hidden="true" loading="lazy" data-idx="36">
+    </div>
+  </div>
+  <div class="works-strip-controls">
+    <button type="button" class="works-arrow" data-dir="prev" aria-label="Anterior">
+      <svg viewBox="0 0 14 14"><polyline points="9 2 3 7 9 12"/></svg>
+    </button>
+    <button type="button" class="works-arrow" data-dir="next" aria-label="Siguiente">
+      <svg viewBox="0 0 14 14"><polyline points="5 2 11 7 5 12"/></svg>
+    </button>
   </div>
 </section>
 
@@ -1802,48 +1900,114 @@ window.addEventListener('hashchange', () => {
   if (location.hash.replace('#', '') === 'brochure-content') openBrochure(false);
 })();
 
-// ─── Works strip carousel ───
-(function initWorksStrip(){
-  const marquee = document.querySelector('.works-strip-marquee');
-  const track   = marquee && marquee.querySelector('.works-strip-track');
-  if (!track) return;
+// ─── Works strip: 2 carruseles + lightbox ───
+(function initWorks(){
+  const marquees = document.querySelectorAll('.works-strip-marquee');
+  if (!marquees.length) return;
 
-  let offset = 0;
-  let paused = false;
-  const SPEED = 55;              // px/s (más rápido que antes)
-  const ARROW_STEP = 320;        // px que salta cada flecha
-  let last = performance.now();
-  let setW = 0;
+  const SPEED = 75;
+  const ARROW_STEP = 340;
+  const states = [];
 
-  function recalc(){ setW = track.scrollWidth / 2; }
+  marquees.forEach(marquee => {
+    const track = marquee.querySelector('.works-strip-track');
+    const dir = marquee.dataset.dir === 'right' ? -1 : 1;
+    const st = { marquee, track, dir, offset: 0, paused: false, setW: 0 };
+    states.push(st);
+    marquee.addEventListener('mouseenter', () => st.paused = true);
+    marquee.addEventListener('mouseleave', () => st.paused = false);
+  });
+
+  function recalc(){ states.forEach(s => s.setW = s.track.scrollWidth / 2); }
   window.addEventListener('resize', recalc);
   window.addEventListener('load', recalc);
   recalc();
 
+  let last = performance.now();
   function loop(now){
-    const dt = (now - last) / 1000;
-    last = now;
-    if (!paused && setW > 0) offset += SPEED * dt;
-    if (setW > 0) {
-      if (offset >= setW) offset -= setW;
-      if (offset < 0) offset += setW;
-    }
-    track.style.transform = `translateX(-${offset}px)`;
+    const dt = (now - last) / 1000; last = now;
+    states.forEach(s => {
+      if (s.setW > 0) {
+        if (!s.paused) s.offset += SPEED * dt * s.dir;
+        if (s.offset >= s.setW) s.offset -= s.setW;
+        if (s.offset < 0) s.offset += s.setW;
+        s.track.style.transform = 'translateX(-' + s.offset + 'px)';
+      }
+    });
     requestAnimationFrame(loop);
   }
   requestAnimationFrame(loop);
 
-  marquee.addEventListener('mouseenter', () => paused = true);
-  marquee.addEventListener('mouseleave', () => paused = false);
-
   document.querySelectorAll('.works-arrow').forEach(btn => {
     btn.addEventListener('click', () => {
-      if (setW <= 0) recalc();
       const delta = btn.dataset.dir === 'next' ? ARROW_STEP : -ARROW_STEP;
-      offset += delta;
+      states.forEach(s => { s.offset += delta * s.dir; });
     });
+  });
+
+  // Lightbox
+  const lightbox = document.getElementById('worksLightbox');
+  if (!lightbox) return;
+  const lbImg    = document.getElementById('lightboxImg');
+  const lbClose  = document.getElementById('lightboxClose');
+  const lbPrev   = document.getElementById('lightboxPrev');
+  const lbNext   = document.getElementById('lightboxNext');
+  const lbCount  = document.getElementById('lightboxCount');
+  const TOTAL = 36;
+  let currentIdx = 1;
+
+  function urlFor(i){ return 'fotos%20carruselp/c' + String(i).padStart(2,'0') + '.jpg'; }
+  function show(i){
+    if (i < 1) i = TOTAL; if (i > TOTAL) i = 1;
+    currentIdx = i;
+    lbImg.src = urlFor(i);
+    lbCount.textContent = i + ' / ' + TOTAL;
+  }
+  function openLB(i){
+    show(i);
+    lightbox.classList.add('open');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('lightbox-open');
+  }
+  function closeLB(){
+    lightbox.classList.remove('open');
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('lightbox-open');
+  }
+
+  document.querySelectorAll('.works-strip-track img').forEach(img => {
+    img.addEventListener('click', () => {
+      const idx = parseInt(img.dataset.idx || '1', 10);
+      openLB(idx);
+    });
+  });
+  lbPrev.addEventListener('click', () => show(currentIdx - 1));
+  lbNext.addEventListener('click', () => show(currentIdx + 1));
+  lbClose.addEventListener('click', closeLB);
+  lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLB(); });
+  document.addEventListener('keydown', (e) => {
+    if (!lightbox.classList.contains('open')) return;
+    if (e.key === 'Escape') closeLB();
+    if (e.key === 'ArrowLeft') show(currentIdx - 1);
+    if (e.key === 'ArrowRight') show(currentIdx + 1);
   });
 })();
 </script>
+
+<!-- ─── LIGHTBOX (works-strip) ─── -->
+<div class="lightbox" id="worksLightbox" aria-hidden="true">
+  <img class="lightbox-img" id="lightboxImg" alt="">
+  <button type="button" class="lightbox-btn lightbox-close" id="lightboxClose" aria-label="Cerrar">
+    <svg viewBox="0 0 24 24"><path d="M6 6l12 12M6 18L18 6"/></svg>
+  </button>
+  <button type="button" class="lightbox-btn lightbox-prev" id="lightboxPrev" aria-label="Anterior">
+    <svg viewBox="0 0 14 14"><polyline points="9 2 3 7 9 12"/></svg>
+  </button>
+  <button type="button" class="lightbox-btn lightbox-next" id="lightboxNext" aria-label="Siguiente">
+    <svg viewBox="0 0 14 14"><polyline points="5 2 11 7 5 12"/></svg>
+  </button>
+  <span class="lightbox-count" id="lightboxCount"></span>
+</div>
+
 </body>
 </html>
