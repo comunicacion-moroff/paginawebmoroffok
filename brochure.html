@@ -1909,16 +1909,26 @@ window.addEventListener('hashchange', () => {
     document.body.classList.remove('lightbox-open');
   }
 
-  document.querySelectorAll('.works-strip-track img').forEach(img => {
-    img.addEventListener('click', () => {
-      const idx = parseInt(img.dataset.idx || '1', 10);
+  // Event delegation en document — más robusto (funciona con imgs dinámicas y evita issues de scope)
+  document.addEventListener('click', (e) => {
+    // Click en foto del carrusel
+    const carruselImg = e.target.closest('.works-strip-track img');
+    if (carruselImg) {
+      e.preventDefault();
+      e.stopPropagation();
+      const idx = parseInt(carruselImg.dataset.idx || '1', 10);
       openLB(idx);
-    });
+      return;
+    }
+    // Click en flecha "anterior" del lightbox
+    if (e.target.closest('#lightboxPrev')) { show(currentIdx - 1); return; }
+    // Click en flecha "siguiente"
+    if (e.target.closest('#lightboxNext')) { show(currentIdx + 1); return; }
+    // Click en botón cerrar
+    if (e.target.closest('#lightboxClose')) { closeLB(); return; }
+    // Click en el fondo negro del lightbox (fuera de la img)
+    if (e.target === lightbox) { closeLB(); return; }
   });
-  lbPrev.addEventListener('click', () => show(currentIdx - 1));
-  lbNext.addEventListener('click', () => show(currentIdx + 1));
-  lbClose.addEventListener('click', closeLB);
-  lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLB(); });
   document.addEventListener('keydown', (e) => {
     if (!lightbox.classList.contains('open')) return;
     if (e.key === 'Escape') closeLB();
